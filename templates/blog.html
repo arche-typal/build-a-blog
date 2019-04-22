@@ -19,20 +19,20 @@
 
         <ul>
             {% for post in posts %}
-            {{post.name}}
-            <br><br>
+            <a href="/view-post?post-id={{post.id}}"><h3>{{post.name}}</h3></a>
+            <!--<h3>{{post.name}}</h3>-->
+            
             {{post.body}}
             <form method="POST" action="/delete-post">
                 <input type="hidden" name="post-id" value="{{post.id}}" />
                 <input type="submit" value="Bye!" />
             </form>
-            <br>
+            <!--<br>
             <form method="GET" action="/view-post">
                 <input type="hidden" name="post-id" value="{{post.id}}" />
                 <input type="submit" value="View!" />
-            </form>
+            </form>-->
             <br>
-            <a href="/view-post?post-id={{post.id}}">{{post.name}}</a>
             <hr />
             
             {% endfor %}
