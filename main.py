@@ -38,7 +38,7 @@ def index():
 
 @app.route('/blog')
 def blog():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.id.desc()).all()
     template = jinja_env.get_template('blog.html')
     return template.render(posts=posts)
 
