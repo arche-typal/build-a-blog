@@ -33,8 +33,11 @@ def check_for_space(astring):
 
 @app.route('/')
 def index():
-    template = jinja_env.get_template('index.html')
-    return template.render()
+    #template = jinja_env.get_template('index.html')
+    #return template.render()
+    posts = Post.query.order_by(Post.id.desc()).all()
+    template = jinja_env.get_template('blog.html')
+    return template.render(posts=posts)
 
 @app.route('/blog')
 def blog():
